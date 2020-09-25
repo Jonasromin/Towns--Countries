@@ -10,9 +10,12 @@ countries.forEach(function(country){
 myCountries += `
             <div id=country${country.id}>
             <strong>${country.countryname}</strong>
+            <br>
+            <br>
             <ul id=ul${country.id}></ul>
             </div>
             <br>
+            <hr>
                 `;
 })
 document.getElementById('mainContent').innerHTML = myCountries
