@@ -9,8 +9,10 @@ countries.forEach(function(country){
 
 myCountries += `
             <div id=country${country.id}>
-            ${country.countryname}
+            <strong>${country.countryname}</strong>
+            <ul id=ul${country.id}></ul>
             </div>
+            <br>
                 `;
 })
 document.getElementById('mainContent').innerHTML = myCountries
@@ -21,20 +23,20 @@ fetch('stad.json')
     cities.sort(function(a,b){
         return b.population - a.population;
     })
-    let sverige = document.getElementById('country1');
-    let finland = document.getElementById('country2');
-    let norge = document.getElementById('country3');
+    let sverige = document.getElementById('ul1');
+    let finland = document.getElementById('ul2');
+    let norge = document.getElementById('ul3');
 
     cities.forEach(function(city){
 
         if (city.countryid == 1){
-            sverige.insertAdjacentHTML("beforeend", `<ul><li>Stad: ${city.stadname} <br>Invånare: ${city.population}</li></ul>`)
+            sverige.insertAdjacentHTML("beforeend", `<li>Stad: ${city.stadname}<br>Invånare: ${city.population}</li>`)
         }
         else if (city.countryid == 2){
-            finland.insertAdjacentHTML("beforeend", `<ul><li>Stad:${city.stadname} <br>Invånare: ${city.population}</li></ul>`)
+            finland.insertAdjacentHTML("beforeend", `<li>Stad:${city.stadname} <br>Invånare: ${city.population}</li>`)
         }
         else{
-            norge.insertAdjacentHTML("beforeend", `<ul><li>Stad:${city.stadname} <br>Invånare: ${city.population}</li></ul>`)
+            norge.insertAdjacentHTML("beforeend", `<li>Stad:${city.stadname} <br>Invånare: ${city.population}</li>`)
         }
     })
 })
